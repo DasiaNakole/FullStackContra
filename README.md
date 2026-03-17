@@ -1,16 +1,6 @@
 # Full-Stack Business Dashboard
 
-A portfolio-ready SaaS-style dashboard with login, analytics cards, a searchable lead table, JSON API endpoints, and a SQLite-backed Express server.
-
-## Why This Is Marketable
-
-This project demonstrates the ability to build practical internal tools and web apps that businesses actually use:
-
-- authentication flows
-- backend API development
-- dashboard UI design
-- business data visualization
-- database-backed record management
+A SaaS-style dashboard with login, analytics cards, a searchable lead table, JSON API endpoints, and a SQLite-backed Express server.
 
 ## Features
 
@@ -38,7 +28,6 @@ This project demonstrates the ability to build practical internal tools and web 
 ## Quick Start
 
 ```bash
-cd /Users/dasiamitchell/Desktop/ContraWork/FullStackBusinessDashboard
 npm install
 npm start
 ```
@@ -53,10 +42,6 @@ Then open:
 - dashboard KPI cards
 - lead table
 - `/api/metrics` JSON response
-
-## Portfolio Positioning
-
-Use this title:
 
 **Full-Stack Business Dashboard**
 
