@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | Full-Stack Business Dashboard</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+  </head>
+  <body class="dashboard-page">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div>
+          <p class="eyebrow">Internal Tool</p>
+          <h1>LeadOps</h1>
+        </div>
+        <nav class="sidebar-nav">
+          <a class="active" href="/dashboard">Dashboard</a>
+          <a href="/api/metrics" target="_blank" rel="noreferrer">Metrics API</a>
+          <a href="/api/leads" target="_blank" rel="noreferrer">Leads API</a>
+          <a href="/api/analytics/trend" target="_blank" rel="noreferrer">Trend API</a>
+        </nav>
+        <form method="post" action="/logout">
+          <button class="ghost-button" type="submit">Log Out</button>
+        </form>
+      </aside>
+
+      <main class="content">
+        <header class="page-header">
+          <div>
+            <p class="eyebrow">Business Dashboard</p>
+            <h2>Lead Performance Overview</h2>
+            <p class="muted">Monitor pipeline activity, follow-ups, and top-priority leads.</p>
+          </div>
+        </header>
+
+        <section class="kpi-grid">
+          <article class="kpi-card">
+            <span>Total Leads</span>
+            <strong><%= metrics.totalLeads %></strong>
+          </article>
+          <article class="kpi-card">
+            <span>New Leads</span>
+            <strong><%= metrics.newLeads %></strong>
+          </article>
+          <article class="kpi-card">
+            <span>Follow Ups</span>
+            <strong><%= metrics.followUps %></strong>
+          </article>
+          <article class="kpi-card">
+            <span>Qualified</span>
+            <strong><%= metrics.qualified %></strong>
+          </article>
+        </section>
+
+        <section class="analytics-layout">
+          <article class="panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Analytics</p>
+                <h3>Lead Trend</h3>
+              </div>
+            </div>
+            <div id="trend-chart" class="chart"></div>
+          </article>
+
+          <article class="panel panel-accent">
+            <p class="eyebrow">Pipeline Notes</p>
+            <h3>What this demo proves</h3>
+            <ul class="insight-list">
+              <li>Login page with session handling</li>
+              <li>Server-rendered dashboard with live database data</li>
+              <li>API routes returning JSON for frontend or integrations</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Lead Table</p>
+              <h3>Current Accounts</h3>
+            </div>
+            <input id="lead-search" class="table-search" type="search" placeholder="Search companies or cities" />
+          </div>
+
+          <div class="table-wrap">
+            <table id="lead-table">
+              <thead>
+                <tr>
+                  <th>Company</th>
+                  <th>Status</th>
+                  <th>Priority</th>
+                  <th>City</th>
+                  <th>Created</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% leads.forEach((lead) => { %>
+                  <tr>
+                    <td><strong><%= lead.company_name %></strong></td>
+                    <td><span class="badge badge-<%= lead.status.toLowerCase().replace(/\s+/g, '-') %>"><%= lead.status %></span></td>
+                    <td><%= lead.priority %></td>
+                    <td><%= lead.city %></td>
+                    <td><%= lead.created_at %></td>
+                    <td><%= lead.notes %></td>
+                  </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/static/js/dashboard.js"></script>
+  </body>
+</html>

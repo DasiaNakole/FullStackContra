@@ -1,0 +1,25 @@
+{
+  "name": "full-stack-business-dashboard",
+  "version": "1.0.0",
+  "description": "Portfolio-ready full-stack business dashboard with auth, analytics, and lead management.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "seed": "node scripts/seed.js"
+  },
+  "keywords": [
+    "dashboard",
+    "express",
+    "sqlite",
+    "portfolio"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^11.10.0",
+    "cookie-parser": "^1.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2"
+  }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Full-Stack Business Dashboard</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+  </head>
+  <body class="login-page">
+    <main class="login-shell">
+      <section class="login-hero">
+        <p class="eyebrow">Portfolio Demo</p>
+        <h1>Full-Stack Business Dashboard</h1>
+        <p class="hero-copy">
+          A lightweight SaaS-style dashboard for logging in, monitoring leads,
+          and reviewing business analytics.
+        </p>
+        <ul class="hero-points">
+          <li>Session-based login flow</li>
+          <li>Dynamic KPI cards and analytics</li>
+          <li>Express API endpoints and SQLite data</li>
+        </ul>
+      </section>
+
+      <section class="login-card">
+        <h2>Welcome back</h2>
+        <p class="muted">Use the demo account to explore the app.</p>
+
+        <% if (error) { %>
+          <div class="alert"><%= error %></div>
+        <% } %>
+
+        <form method="post" action="/login" class="login-form">
+          <label>
+            Email
+            <input type="email" name="email" value="demo@dashboard.com" required />
+          </label>
+
+          <label>
+            Password
+            <input type="password" name="password" value="demo123" required />
+          </label>
+
+          <button type="submit">Log In</button>
+        </form>
+
+        <div class="demo-credentials">
+          <strong>Demo login</strong>
+          <span>demo@dashboard.com / demo123</span>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
